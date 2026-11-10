@@ -190,20 +190,21 @@
   },
   "active": "ead1b90a7a441ad0",
   "lastOpenFiles": [
-    "README.md",
-    "_posts/2026-11-09-welcome-to-jekyll.md",
-    "_site/README.md",
-    "_site/2026/11/09/test.html",
-    "_site/2026/11/09",
-    "_site/2026/11",
-    "_site/2026",
+    "_site/jekyll/update/2026/11/09/welcome-to-jekyll.html",
+    "_site/jekyll/update/2026/11/09",
+    "_site/jekyll/update/2026/11",
+    "_site/jekyll/update/2026",
+    "_site/jekyll/update",
     "_site/assets/minima-social-icons.svg",
     "_site/assets/main.css.map",
     "_site/assets/main.css",
-    "_site/assets/js/scale.fix.js",
-    "_site/assets/js",
+    "_site/about/index.html",
+    "_site/run.bat",
+    "_site/jekyll",
+    "_site/index.html",
     "_site/assets/images/checker.png",
-    "_site/assets/images",
-    "_site/assets/css/style.css.map"
+    "README.md",
+    "_posts/2026-11-09-welcome-to-jekyll.md",
+    "_site/README.md"
   ]
 }
