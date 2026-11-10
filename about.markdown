@@ -6,7 +6,11 @@ permalink: /about/
 
 Under construction, pardon our dust.
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+This is a modification of the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+
+You can find the source code for this site at GitHub:
+[EWARS2](my-github) /
+[github.io](my-repo)
 
 You can find the source code for Minima at GitHub:
 [jekyll][jekyll-organization] /
@@ -15,6 +19,5 @@ You can find the source code for Minima at GitHub:
 You can find the source code for Jekyll at GitHub:
 [jekyll][jekyll-organization] /
 [jekyll](https://github.com/jekyll/jekyll)
-
 
 [jekyll-organization]: https://github.com/jekyll
