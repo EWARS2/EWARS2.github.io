@@ -9,8 +9,8 @@ Under construction, pardon our dust.
 This is a modification of the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
 You can find the source code for this site at GitHub:
-[EWARS2](my-github) /
-[github.io](my-repo)
+[EWARS2][my-github] /
+[github.io][my-repo]
 
 You can find the source code for Minima at GitHub:
 [jekyll][jekyll-organization] /
