@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "_posts/2026-11-09-welcome-to-jekyll.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "2026-11-09-welcome-to-jekyll"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "_posts/2026-11-09-welcome-to-jekyll.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "_posts/2026-11-09-welcome-to-jekyll.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "_posts/2026-11-09-welcome-to-jekyll.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -189,5 +189,21 @@
     }
   },
   "active": "ead1b90a7a441ad0",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "README.md",
+    "_posts/2026-11-09-welcome-to-jekyll.md",
+    "_site/README.md",
+    "_site/2026/11/09/test.html",
+    "_site/2026/11/09",
+    "_site/2026/11",
+    "_site/2026",
+    "_site/assets/minima-social-icons.svg",
+    "_site/assets/main.css.map",
+    "_site/assets/main.css",
+    "_site/assets/js/scale.fix.js",
+    "_site/assets/js",
+    "_site/assets/images/checker.png",
+    "_site/assets/images",
+    "_site/assets/css/style.css.map"
+  ]
 }
