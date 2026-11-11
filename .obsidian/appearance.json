@@ -1,3 +1,4 @@
 {
-  "cssTheme": "OLED.Black"
+  "cssTheme": "OLED.Black",
+  "textFontFamily": "DEC Terminal Modern"
 }

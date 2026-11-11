@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_drafts/2026-11-10-hello-world.md",
+                "file": "_posts/2026-11-10-hello-world.md",
                 "mode": "source",
                 "source": true
               },
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_drafts/2026-11-10-hello-world.md",
+                "file": "_posts/2026-11-10-hello-world.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_drafts/2026-11-10-hello-world.md",
+                "file": "_posts/2026-11-10-hello-world.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -176,7 +176,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_drafts/2026-11-10-hello-world.md",
+                "file": "_posts/2026-11-10-hello-world.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -203,21 +203,22 @@
       "bases:Create new base": false
     }
   },
-  "active": "f87fe898c0106e88",
+  "active": "6eaaec7c28236033",
   "lastOpenFiles": [
-    "_drafts/2026-11-09-welcome-to-jekyll.md",
-    "_drafts/2026-11-10-hello-world.md",
-    "_drafts",
     "_site/jekyll/update/2026/11/10/hello-world.html",
     "_site/jekyll/update/2026/11/10",
+    "_site/jekyll/update/2026/11",
+    "_site/jekyll/update/2026",
+    "_site/jekyll/update",
+    "_site/jekyll",
+    "_drafts/2026-11-09-welcome-to-jekyll.md",
+    "_posts/2026-11-10-hello-world.md",
+    "_drafts",
     "_site/jekyll/update/2026/11/09/hello-world.html",
     "_site/2026/11/10/hello-world.html",
     "_site/2026/11/10",
     "README.md",
     "_site/2026/11/09/hello-world.html",
-    "_site/2026/11/09",
-    "_site/2026/11",
-    "_site/2026",
     "_site/2026-11-09-hello-world.md",
     "_site/Untitled.md",
     "_site/assets/minima-social-icons.svg",
