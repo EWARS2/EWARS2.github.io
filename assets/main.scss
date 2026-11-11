@@ -1,7 +1,7 @@
 ---
 ---
 
-// Minima 2.x defaults. These must be declared before importing the theme.
+// Minima 2.x variables must be set before importing the theme.
 $text-color: #e8e4ed;
 $background-color: #1d1b24;
 $brand-color: #c8a9f0;
@@ -17,18 +17,44 @@ $surface-border: #594d68;
 $card-title: #493566;
 $shadow-color: rgba(0, 0, 0, 0.35);
 
-// Global layout and typography.
+// Every gradient below is ordered: solid fallback, iOS 6 WebKit,
+// then unprefixed syntax for modern browsers. Old -webkit-linear-gradient
+// takes a direction such as "top", not the modern "to bottom".
+
+// Global appearance and sticky footer.
 :root { color-scheme: dark; }
+
+html { background-color: $background-color; }
 
 body {
   min-height: 100vh;
+  // iOS 6 supports the older WebKit box layout.
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, #35313e, $background-color) fixed;
+
+  background-color: $background-color;
+  background-image: -webkit-linear-gradient(top, #35313e, #1d1b24);
+  background-image: linear-gradient(to bottom, #35313e, #1d1b24);
+  background-attachment: fixed;
   color: $text-color;
 }
 
-.page-content { flex: 1; }
+.page-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+.site-header,
+.site-footer {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
 
 h1, h2, h3, h4, h5, h6 { color: $heading-color; }
 
@@ -40,20 +66,21 @@ a {
 
 .post-meta { color: $grey-color; }
 
-// Glossy purple iOS 6 navigation bar.
+// Glossy royal-purple navigation bar.
 .site-header {
-  background: linear-gradient(
-    to bottom,
-    #c5afe8 0%,
-    #9676c9 49%,
-    #7954b1 51%,
-    #593783 100%
+  background-color: #7954b1;
+  background-image: -webkit-linear-gradient(
+    top, #c5afe8 0%, #9676c9 49%, #7954b1 51%, #593783 100%
+  );
+  background-image: linear-gradient(
+    to bottom, #c5afe8 0%, #9676c9 49%, #7954b1 51%, #593783 100%
   );
   border-top: 1px solid #e2d5f5;
   border-bottom: 1px solid #422568;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 2px 4px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                      0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5),
+              0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .site-title,
@@ -67,38 +94,43 @@ a {
 .site-title:hover,
 .site-nav .page-link:hover { color: #f1e8ff; }
 
-// Minima's collapsed navigation has a separate background.
+// Minima's collapsed mobile navigation uses its own surface.
 @media screen and (max-width: 600px) {
   .site-nav {
-    background: #34263f;
+    background-color: #34263f;
     border-color: #70518e;
-
     .menu-icon > svg { fill: #e8d8f7; }
     .page-link { color: #f0eaf8; }
   }
 }
 
-// Light, grouped-style post cards.
+// Light iOS 6-style post cards.
 .post-list {
   > li {
     position: relative;
     margin-bottom: 15px;
     padding: 15px 35px 15px 18px;
     color: #333;
-    background: linear-gradient(to bottom, #fff, #f4f3f8);
+    background-color: #f4f3f8;
+    background-image: -webkit-linear-gradient(top, #fff 0%, #f4f3f8 100%);
+    background-image: linear-gradient(to bottom, #fff 0%, #f4f3f8 100%);
     border: 1px solid #b9b7c5;
     border-radius: 10px;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 1px 3px rgba(0, 0, 0, 0.15);
-    transition: background 0.15s ease, border-color 0.15s ease;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                        0 1px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                0 1px 3px rgba(0, 0, 0, 0.15);
+    -webkit-transition: background-color 0.15s ease, border-color 0.15s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
 
     &:hover {
-      background: linear-gradient(to bottom, #f1eafa, #ddd0ee);
+      background-color: #ddd0ee;
+      background-image: -webkit-linear-gradient(top, #f1eafa, #ddd0ee);
+      background-image: linear-gradient(to bottom, #f1eafa, #ddd0ee);
       border-color: #9b83bb;
     }
 
-    // Decorative disclosure chevron; the post title remains the link.
+    // Decorative chevron; the title is still the clickable link.
     &::after {
       content: "";
       position: absolute;
@@ -108,6 +140,7 @@ a {
       height: 8px;
       border-top: 2px solid #aaa6b5;
       border-right: 2px solid #aaa6b5;
+      -webkit-transform: translateY(-50%) rotate(45deg);
       transform: translateY(-50%) rotate(45deg);
       pointer-events: none;
     }
@@ -115,7 +148,6 @@ a {
 
   h3 {
     margin-bottom: 5px;
-
     a, a:visited {
       color: $card-title;
       font-weight: bold;
@@ -130,21 +162,21 @@ a {
   }
 }
 
-// Dark, glossy app-dock footer.
+// Glossy black app-dock footer.
 .site-footer {
-  background: linear-gradient(
-    to bottom,
-    #55515c 0%,
-    #25232b 3%,
-    #141319 48%,
-    #111119 50%,
-    #09090d 100%
+  background-color: #141319;
+  background-image: -webkit-linear-gradient(
+    top, #55515c 0%, #25232b 3%, #141319 48%, #111119 50%, #09090d 100%
+  );
+  background-image: linear-gradient(
+    to bottom, #55515c 0%, #25232b 3%, #141319 48%, #111119 50%, #09090d 100%
   );
   border-top: 1px solid #85808d;
   border-bottom: 1px solid #050507;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    0 -2px 6px $shadow-color;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                      0 -2px 6px $shadow-color;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+              0 -2px 6px $shadow-color;
   color: $muted-color;
 
   a, a:visited {
@@ -164,7 +196,7 @@ a {
 .contact-list,
 .social-media-list { color: $muted-color; }
 
-// Inline code and fenced code blocks.
+// Inline and fenced code.
 code {
   background-color: #393341;
   color: #e4d9f0;
@@ -174,7 +206,9 @@ code {
 
 pre,
 .highlight {
-  background: linear-gradient(to bottom, #393341, #292430);
+  background-color: #292430;
+  background-image: -webkit-linear-gradient(top, #393341, #292430);
+  background-image: linear-gradient(to bottom, #393341, #292430);
   color: #d9d0e5;
   border: 1px solid $surface-border;
   border-radius: 6px;
@@ -200,15 +234,11 @@ pre code,
   .m, .mi, .mf, .mh { color: #e7bd8b; } // Numbers
   .nf, .nc, .nt { color: #a9c7f0; } // Functions, classes, tags
   .o, .ow { color: #d9d0e5; } // Operators
-  .na, .nb, .nv { color: #c5a7df; } // Attributes, variables
-
-  .err {
-    color: #ff9999;
-    background: transparent;
-  }
+  .na, .nb, .nv { color: #c5a7df; } // Attributes and variables
+  .err { color: #ff9999; background: transparent; }
 }
 
-// Quotations and tabular data.
+// Quotations and tables.
 blockquote {
   color: $grey-color;
   border-left: 4px solid #806b9b;
