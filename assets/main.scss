@@ -1,8 +1,7 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-// Minima 2.x theme variables (must precede the import).
+// Minima 2.x defaults. These must be declared before importing the theme.
 $text-color: #e8e4ed;
 $background-color: #1d1b24;
 $brand-color: #c8a9f0;
@@ -11,34 +10,37 @@ $grey-color: #bcb2ca;
 @import "minima";
 
 // Shared palette.
-$surface-border: #594d68;
 $heading-color: #f0eaf8;
 $muted-color: #c9c2d2;
 $link-hover: #e0ccff;
+$surface-border: #594d68;
 $card-title: #493566;
+$shadow-color: rgba(0, 0, 0, 0.35);
 
-// Global dark appearance.
-:root {
-  color-scheme: dark;
-}
+// Global layout and typography.
+:root { color-scheme: dark; }
 
 body {
-  background: linear-gradient(to bottom, #35313e, #1d1b24) fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #35313e, $background-color) fixed;
   color: $text-color;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: $heading-color;
-}
+.page-content { flex: 1; }
+
+h1, h2, h3, h4, h5, h6 { color: $heading-color; }
 
 a {
   color: $brand-color;
-
   &:visited { color: #b49ad5; }
   &:hover { color: $link-hover; }
 }
 
-// Glossy iOS 6-inspired purple header.
+.post-meta { color: $grey-color; }
+
+// Glossy purple iOS 6 navigation bar.
 .site-header {
   background: linear-gradient(
     to bottom,
@@ -47,8 +49,8 @@ a {
     #7954b1 51%,
     #593783 100%
   );
-  border-top: 1px solid #e2e9f2;
-  border-bottom: 1px solid #354f70;
+  border-top: 1px solid #e2d5f5;
+  border-bottom: 1px solid #422568;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
     0 2px 4px rgba(0, 0, 0, 0.2);
@@ -62,33 +64,41 @@ a {
 }
 
 .site-title { font-weight: bold; }
-
 .site-title:hover,
-.site-nav .page-link:hover {
-  color: #e8f2ff;
+.site-nav .page-link:hover { color: #f1e8ff; }
+
+// Minima's collapsed navigation has a separate background.
+@media screen and (max-width: 600px) {
+  .site-nav {
+    background: #34263f;
+    border-color: #70518e;
+
+    .menu-icon > svg { fill: #e8d8f7; }
+    .page-link { color: #f0eaf8; }
+  }
 }
 
-// iOS 6-style post cards.
+// Light, grouped-style post cards.
 .post-list {
   > li {
     position: relative;
     margin-bottom: 15px;
     padding: 15px 35px 15px 18px;
     color: #333;
-    background: linear-gradient(to bottom, #fff 0%, #f4f3f8 100%);
+    background: linear-gradient(to bottom, #fff, #f4f3f8);
     border: 1px solid #b9b7c5;
     border-radius: 10px;
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.9),
       0 1px 3px rgba(0, 0, 0, 0.15);
-    transition: background 0.15s ease;
+    transition: background 0.15s ease, border-color 0.15s ease;
 
     &:hover {
       background: linear-gradient(to bottom, #f1eafa, #ddd0ee);
       border-color: #9b83bb;
     }
 
-    // Decorative disclosure chevron.
+    // Decorative disclosure chevron; the post title remains the link.
     &::after {
       content: "";
       position: absolute;
@@ -120,24 +130,39 @@ a {
   }
 }
 
-// Footer and secondary text.
-.site-footer { border-top: 1px solid #665b73; }
-.footer-heading { color: $heading-color; }
+// Dark, glossy app-dock footer.
+.site-footer {
+  background: linear-gradient(
+    to bottom,
+    #55515c 0%,
+    #25232b 3%,
+    #141319 48%,
+    #111119 50%,
+    #09090d 100%
+  );
+  border-top: 1px solid #85808d;
+  border-bottom: 1px solid #050507;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 -2px 6px $shadow-color;
+  color: $muted-color;
+
+  a, a:visited {
+    color: $brand-color;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6);
+  }
+  a:hover { color: $link-hover; }
+}
+
+.footer-heading {
+  color: $heading-color;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
+}
 
 .footer-col-wrapper,
 .footer-col,
 .contact-list,
-.social-media-list {
-  color: $muted-color;
-}
-
-.site-footer a,
-.site-footer a:visited {
-  color: $brand-color;
-}
-
-.site-footer a:hover { color: $link-hover; }
-.post-meta { color: $grey-color; }
+.social-media-list { color: $muted-color; }
 
 // Inline code and fenced code blocks.
 code {
@@ -183,7 +208,7 @@ pre code,
   }
 }
 
-// Blockquotes.
+// Quotations and tabular data.
 blockquote {
   color: $grey-color;
   border-left: 4px solid #806b9b;
@@ -192,7 +217,6 @@ blockquote {
   border-radius: 0 6px 6px 0;
 }
 
-// Dark tables.
 table {
   color: $text-color;
   border-color: $surface-border;
@@ -206,64 +230,4 @@ table {
   td { border-color: $surface-border; }
   tr { background-color: #302a39; }
   tr:nth-child(even) { background-color: #393241; }
-}
-
-/* iOS 6-inspired glossy black footer */
-.site-footer {
-  background: linear-gradient(
-    to bottom,
-    #55515c 0%,
-    #25232b 3%,
-    #141319 48%,
-    #111119 50%,
-    #09090d 100%
-  );
-
-  border-top: 1px solid #85808d;
-  border-bottom: 1px solid #050507;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    0 -2px 6px rgba(0, 0, 0, 0.35);
-
-  color: #c9c2d2;
-}
-
-/* Footer headings */
-.footer-heading {
-  color: #f0eaf8;
-  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
-}
-
-/* Footer description and contact information */
-.footer-col-wrapper,
-.footer-col,
-.contact-list,
-.social-media-list {
-  color: #c9c2d2;
-}
-
-/* Footer links */
-.site-footer a,
-.site-footer a:visited {
-  color: #c8a9f0;
-  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6);
-}
-
-.site-footer a:hover {
-  color: #e0ccff;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.page-content {
-  flex: 1;
-}
-
-.site-footer {
-  flex-shrink: 0;
 }
